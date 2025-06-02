@@ -1,0 +1,156 @@
+:root {
+    --primary-color: #1e3c72;
+    --secondary-color: #2a5298;
+    --accent-color: #ff6f61;
+    --text-color: #ffffff;
+    --bg-color: #1e3c72;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 10px;
+    background: var(--secondary-color);
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+header {
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 2px;
+    color: var(--accent-color);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.time-box {
+    background: rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 16px;
+    margin: 18px 0;
+}
+
+.time-display {
+    font-size: 2.1rem;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 8px;
+}
+
+.status {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 18px 0;
+    align-items: center;
+}
+
+.time-picker {
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto;
+    padding: 12px;
+    font-size: 1.1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.15);
+    color: var(--text-color);
+    text-align: center;
+    display: block;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px 0;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.07rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    background: var(--accent-color);
+    color: white;
+}
+
+.btn:active {
+    background: #d94c4c;
+    transform: scale(0.98);
+}
+
+.alarm-btn {
+    background: var(--accent-color);
+}
+
+.sleep-btn {
+    background: var(--primary-color);
+}
+
+.sleep-btn:active {
+    background: #132a4a;
+}
+
+.wake-btn {
+    background: var(--secondary-color);
+}
+
+.wake-btn:active {
+    background: #183b6b;
+}
+
+.comment-container {
+    background: rgba(255,255,255,0.13);
+    border-radius: 14px;
+    padding: 18px;
+    min-height: 90px;
+    margin-top: 15px;
+}
+
+.comment {
+    font-size: 1.13rem;
+    font-style: italic;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 98vw;
+        padding: 10px 2vw;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .time-display {
+        font-size: 1.4rem;
+    }
+    .btn {
+        font-size: 0.97rem;
+        padding: 11px 0;
+    }
+    .comment {
+        font-size: 1rem;
+    }
+}
