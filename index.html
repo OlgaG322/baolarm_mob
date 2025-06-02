@@ -12,7 +12,7 @@
     <div class="container">
         <header>
             <h1>Баоларм</h1>
-            <img src="icon-512.png" alt="Баоларм" width="128" height="128" style="display:block; margin: 10px auto;">
+            <img src="icon-512.png" alt="Баоларм" width="96" height="96" style="display:block; margin: 8px auto 0;">
             <p class="subtitle">Саркастичный анти-будильник</p>
         </header>
 
@@ -23,7 +23,15 @@
             </div>
 
             <div class="controls">
-                <input type="time" id="alarmTime" class="time-picker">
+                <div class="time-picker-wrap">
+                    <span class="clock-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="#ff6f61" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" fill="none" stroke="#ff6f61" stroke-width="2"/>
+                            <path d="M12 7v5l3 3" stroke="#ff6f61" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </span>
+                    <input type="time" id="alarmTime" class="time-picker" autocomplete="off">
+                </div>
                 <button id="setAlarm" class="btn alarm-btn"></button>
                 <button id="sleepBtn" class="btn sleep-btn">Иду спать!</button>
                 <button id="wakeBtn" class="btn wake-btn">Я проснулся!</button>
@@ -34,7 +42,6 @@
             </div>
         </main>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
