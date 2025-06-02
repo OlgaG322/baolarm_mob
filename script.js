@@ -65,7 +65,6 @@ const phrases = {
         "Твоя энергия в течение дня достойна кисти абстракциониста: никто не понимает, что это должно означать"
     ],
     good: [
-        "Ого! Целых 8 часов сна? Ты случайно не перепутал себя с нормальным человеком?",
         "Невероятно! Твои глаза не похожи на два кратера от метеоритов. Чудеса случаются!",
         "Ты выглядишь почти как человек, который выспался. Почти.",
         "Поздравляю! Ты снова доказал, что можешь спать как нормальный человек. Почти.",
@@ -84,6 +83,7 @@ const sarcasticButtonLabels = [
     "Буду в кровати... ну, типа",
     "Я укажу время, а организм всё равно проигнорирует",
     "Планирую заснуть к этому времени (но это не точно)",
+    "В это время я, возможно, уже буду считать овец",
     "Попробую удивить себя и лечь спать вовремя",
     "Установить время для вечерних самообманов",
     "Поставить время, когда я должен был бы спать",
@@ -192,13 +192,10 @@ document.getElementById('setAlarm').addEventListener('click', () => {
     setRandomButtonLabel();
 });
 
-document.getElementById('sleepBtn').addEventListener('click', () => {
-    sleepStart = new Date();
-    document.getElementById('sleepStatus').textContent = 'Спит';
-    document.getElementById('comment').textContent = getRandomPhrase('general');
-});
+const wakeBtn = document.getElementById('wakeBtn');
+const sleepBtn = document.getElementById('sleepBtn');
 
-document.getElementById('wakeBtn').addEventListener('click', () => {
+wakeBtn.addEventListener('click', () => {
     if (!sleepStart) return;
     const sleepDuration = (new Date() - sleepStart) / 3600000;
     const commentType = sleepDuration >= 7 ? 'good' : 'bad';
@@ -207,6 +204,16 @@ document.getElementById('wakeBtn').addEventListener('click', () => {
     playSoundRepeatedly(alarmSound, 3);
     if (navigator.vibrate) navigator.vibrate([500, 200, 500]);
     sleepStart = null;
+    // Кнопка становится белой с синими буквами
+    wakeBtn.classList.add('awake');
+});
+
+sleepBtn.addEventListener('click', () => {
+    sleepStart = new Date();
+    document.getElementById('sleepStatus').textContent = 'Спит';
+    document.getElementById('comment').textContent = getRandomPhrase('general');
+    // Кнопка снова светло-синяя с белыми буквами
+    wakeBtn.classList.remove('awake');
 });
 
 function initApp() {
