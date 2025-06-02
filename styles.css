@@ -2,6 +2,10 @@
     --primary-color: #1e3c72;
     --secondary-color: #2a5298;
     --accent-color: #ff6f61;
+    --accent-light: #ffb3aa;
+    --wake-btn-lightblue: #b3cfff;
+    --wake-btn-blue: #1e3c72;
+    --wake-btn-white: #fff;
     --text-color: #ffffff;
     --bg-color: #1e3c72;
 }
@@ -14,143 +18,194 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .container {
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px 10px;
+    max-width: 290px;
+    width: 97vw;
+    margin: 8px auto 0;
+    padding: 10px 4px 8px 4px;
     background: var(--secondary-color);
     border-radius: 16px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    box-shadow: 0 0 18px rgba(0,0,0,0.13);
     text-align: center;
 }
 
 header {
-    margin-bottom: 24px;
+    margin-bottom: 8px;
+    margin-top: 0;
 }
 
 h1 {
-    font-size: 2.2rem;
+    font-size: 1.25rem;
     margin-bottom: 2px;
     color: var(--accent-color);
 }
 
 .subtitle {
-    font-size: 1.1rem;
+    font-size: 0.92rem;
     opacity: 0.8;
+    margin-bottom: 2px;
 }
 
 .time-box {
-    background: rgba(255,255,255,0.12);
-    border-radius: 14px;
-    padding: 16px;
-    margin: 18px 0;
+    background: rgba(255,255,255,0.10);
+    border-radius: 12px;
+    padding: 6px 0 5px 0;
+    margin: 4px 0 7px 0;
 }
 
 .time-display {
-    font-size: 2.1rem;
+    font-size: 1.05rem;
     font-family: 'Courier New', monospace;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
 }
 
 .status {
-    font-size: 1.1rem;
+    font-size: 0.99rem;
     color: var(--accent-color);
 }
 
 .controls {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    margin: 18px 0;
+    gap: 8px;
+    margin: 4px 0 0 0;
     align-items: center;
 }
 
+.time-picker-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 auto 2px auto;
+}
+
+.clock-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+}
+
 .time-picker {
-    width: 100%;
-    max-width: 220px;
-    margin: 0 auto;
-    padding: 12px;
-    font-size: 1.1rem;
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    background: rgba(255,255,255,0.15);
+    width: 80px;
+    padding: 4px 5px 4px 5px;
+    font-size: 0.97rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.13);
     color: var(--text-color);
     text-align: center;
-    display: block;
+    outline: none;
+    box-shadow: none;
+    margin: 0;
 }
+
+.time-picker::-webkit-input-placeholder { color: #bbb; }
+.time-picker:-ms-input-placeholder { color: #bbb; }
+.time-picker::placeholder { color: #bbb; }
 
 .btn {
     width: 100%;
-    padding: 14px 0;
+    min-height: 34px;
+    padding: 0 4px;
     border: none;
     border-radius: 20px;
-    font-size: 1.07rem;
+    font-size: 0.91rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
     background: var(--accent-color);
     color: white;
+    transition: background 0.18s, color 0.18s, border 0.18s, transform 0.18s;
+    word-break: break-word;
+    white-space: normal;
+    line-height: 1.2;
+    box-sizing: border-box;
 }
 
-.btn:active {
+.btn:hover {
     background: #d94c4c;
-    transform: scale(0.98);
+    transform: scale(1.03);
 }
 
 .alarm-btn {
     background: var(--accent-color);
+    min-height: 36px;
+    padding: 0 4px;
+    word-break: break-word;
+    white-space: normal;
+    line-height: 1.2;
+    font-size: 0.91rem;
 }
 
 .sleep-btn {
     background: var(--primary-color);
 }
 
-.sleep-btn:active {
+.sleep-btn:hover {
     background: #132a4a;
 }
 
+/* Кнопка "Я проснулся!" — светло-синяя с белыми буквами по умолчанию */
 .wake-btn {
-    background: var(--secondary-color);
+    background: var(--wake-btn-lightblue);
+    color: #fff;
+    border: 1.5px solid var(--wake-btn-blue);
+    transition: background 0.18s, color 0.18s, border 0.18s;
 }
 
-.wake-btn:active {
-    background: #183b6b;
+/* При нажатии — белая с синими буквами */
+.wake-btn.awake {
+    background: var(--wake-btn-white);
+    color: var(--wake-btn-blue);
+    border: 1.5px solid var(--wake-btn-blue);
+}
+
+/* По ховеру — чуть темнее */
+.wake-btn:hover {
+    background: #90b4e8;
+    color: #fff;
+    border: 1.5px solid var(--wake-btn-blue);
 }
 
 .comment-container {
     background: rgba(255,255,255,0.13);
     border-radius: 14px;
-    padding: 18px;
-    min-height: 90px;
-    margin-top: 15px;
+    padding: 9px;
+    min-height: 38px;
+    margin-top: 7px;
 }
 
 .comment {
-    font-size: 1.13rem;
+    font-size: 0.93rem;
     font-style: italic;
     text-align: center;
+    word-break: break-word;
 }
 
 @media (max-width: 480px) {
     .container {
         max-width: 98vw;
-        padding: 10px 2vw;
+        padding: 3px 1vw;
     }
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.01rem;
     }
     .time-display {
-        font-size: 1.4rem;
+        font-size: 0.81rem;
     }
     .btn {
-        font-size: 0.97rem;
-        padding: 11px 0;
+        font-size: 0.89rem;
+        padding: 7px 0;
+        min-height: 28px;
     }
     .comment {
-        font-size: 1rem;
+        font-size: 0.89rem;
+    }
+    .alarm-btn {
+        min-height: 30px;
     }
 }
