@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Баоларм — Анти-будильник</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Баоларм</h1>
+            <img src="icon-512.png" alt="Баоларм" width="128" height="128" style="display:block; margin: 10px auto;">
+            <p class="subtitle">Саркастичный анти-будильник</p>
+        </header>
+
+        <main>
+            <div class="time-box">
+                <div id="currentTime" class="time-display"></div>
+                <div id="sleepStatus" class="status">Не спит</div>
+            </div>
+
+            <div class="controls">
+                <input type="time" id="alarmTime" class="time-picker">
+                <button id="setAlarm" class="btn alarm-btn"></button>
+                <button id="sleepBtn" class="btn sleep-btn">Иду спать!</button>
+                <button id="wakeBtn" class="btn wake-btn">Я проснулся!</button>
+            </div>
+
+            <div class="comment-container">
+                <div id="comment" class="comment"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
